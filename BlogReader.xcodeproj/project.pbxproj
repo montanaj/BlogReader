@@ -11,6 +11,7 @@
 		7E390CA91A951062007733D3 /* BlogPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E390CA81A951062007733D3 /* BlogPost.m */; };
 		7E390CAB1AA016E6007733D3 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E390CAA1AA016E6007733D3 /* pig.png */; };
 		7E390CAE1AA0F908007733D3 /* JSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E390CAD1AA0F908007733D3 /* JSONSerializer.m */; };
+		7E390CB41AA108D4007733D3 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E390CB31AA108D4007733D3 /* WebViewController.m */; };
 		7EFC89081A8ABCCD00B8B317 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC89071A8ABCCD00B8B317 /* main.m */; };
 		7EFC890B1A8ABCCD00B8B317 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC890A1A8ABCCD00B8B317 /* AppDelegate.m */; };
 		7EFC89111A8ABCCD00B8B317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFC890F1A8ABCCD00B8B317 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 		7E390CAA1AA016E6007733D3 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
 		7E390CAC1AA0F908007733D3 /* JSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONSerializer.h; sourceTree = "<group>"; };
 		7E390CAD1AA0F908007733D3 /* JSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONSerializer.m; sourceTree = "<group>"; };
+		7E390CB21AA108D4007733D3 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		7E390CB31AA108D4007733D3 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		7EFC89021A8ABCCD00B8B317 /* BlogReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFC89061A8ABCCD00B8B317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EFC89071A8ABCCD00B8B317 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 		7E390CB01AA0FBE5007733D3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7E390CB21AA108D4007733D3 /* WebViewController.h */,
+				7E390CB31AA108D4007733D3 /* WebViewController.m */,
 				7E390CA41A941F09007733D3 /* TableViewController.h */,
 				7E390CA51A941F09007733D3 /* TableViewController.m */,
 				7EFC89091A8ABCCD00B8B317 /* AppDelegate.h */,
@@ -123,7 +128,6 @@
 			children = (
 				7E390CB11AA0FBFF007733D3 /* View */,
 				7E390CAF1AA0FBD1007733D3 /* Model */,
-				7E390CAA1AA016E6007733D3 /* pig.png */,
 				7E390CB01AA0FBE5007733D3 /* Controllers */,
 				7EFC89051A8ABCCD00B8B317 /* Supporting Files */,
 			);
@@ -133,6 +137,7 @@
 		7EFC89051A8ABCCD00B8B317 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E390CAA1AA016E6007733D3 /* pig.png */,
 				7EFC89061A8ABCCD00B8B317 /* Info.plist */,
 				7EFC89071A8ABCCD00B8B317 /* main.m */,
 			);
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EFC890B1A8ABCCD00B8B317 /* AppDelegate.m in Sources */,
+				7E390CB41AA108D4007733D3 /* WebViewController.m in Sources */,
 				7E390CA61A941F09007733D3 /* TableViewController.m in Sources */,
 				7E390CAE1AA0F908007733D3 /* JSONSerializer.m in Sources */,
 				7EFC89081A8ABCCD00B8B317 /* main.m in Sources */,

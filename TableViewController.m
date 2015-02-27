@@ -7,6 +7,7 @@
 //
 
 #import "TableViewController.h"
+#import "WebViewController.h"
 #import "BlogPost.h"
 #import "JSONSerializer.h"
 
@@ -18,7 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.title = @"Blogs";
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+
     //initializing tableviewcontroller blogPost Array
     self.blogPosts = [NSMutableArray array];
 
@@ -45,7 +51,6 @@
 
     self.tableView.estimatedRowHeight = 100.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.backgroundColor = [UIColor blueColor];
     self.tableView.userInteractionEnabled = YES;
 }
 
@@ -105,55 +110,24 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"indexpath.row:%ld", (long)indexPath.row);
     BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
-    //recieve instance of uiappdelegate (appdelegate singleton object, C file main);
-    UIApplication *application = [UIApplication sharedApplication];
-    [application openURL:blogPost.url];
 
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+
     // Pass the selected object to the new view controller.
+    NSLog(@"segue:%@", segue.identifier);
+
+    if ([segue.identifier isEqual:@"showWeb"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
+
+        [segue.destinationViewController setBlogPostURL:blogPost.url];
+    }
 }
-*/
 
 @end

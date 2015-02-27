@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "BlogPost.h"
+#import "JSONSerializer.h"
 
 @interface TableViewController ()
 
@@ -17,45 +18,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    NSError *error = nil;
-    //create url object with call - usally local file! Will block thread.
-    NSURL *url = [NSURL URLWithString:@"http://blog.teamtreehouse.com/api/get_recent_summary/"];
-
-    //Create data object with whatever url returns
-    NSData *jsonData = [NSData dataWithContentsOfURL:url];
-    NSLog(@"jsondata:%@", jsonData);
-
-    //serialize JSON into Dictionary
-    NSDictionary *blogDict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-
-    NSLog(@"jsonData = %@, blogDict %@",jsonData,blogDict);
-
+    //initializing tableviewcontroller blogPost Array
     self.blogPosts = [NSMutableArray array];
 
+    //json serializer returns a dictionary
+    JSONSerializer *jsonSerializer = [JSONSerializer new];
+    NSDictionary * blogDict = [jsonSerializer jsonSerializer:@"http://blog.teamtreehouse.com/api/get_recent_summary/"];
+
+    //store serialized posts in local array
     NSArray *blogPostArray = [blogDict objectForKey:@"posts"];
     NSLog(@"blogPosts:%@", blogPostArray);
-
+    
+    //iterate through array of dictionaries
     for (NSDictionary *blogPostDictionary in blogPostArray) {
+        //use the convenience constructor to alloc init with title;
         BlogPost *blogPost = [BlogPost blogPostWithTitle:[blogPostDictionary objectForKey:@"title"]];
+        //get values for all properties of the blogPost instance
         blogPost.author = [blogPostDictionary objectForKey:@"author"];
         blogPost.thumbnail = [blogPostDictionary objectForKey:@"thumbnail"];
         blogPost.date = [blogPostDictionary objectForKey:@"date"];
+        blogPost.url = [NSURL URLWithString:[blogPostDictionary objectForKey:@"url"]];
+        //add this new object to the tableview array
         [self.blogPosts addObject:blogPost];
     }
-
-    self.sectionTitles = @[@"Improv Nerd", @"Wine Night"];
 
     self.tableView.estimatedRowHeight = 100.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.backgroundColor = [UIColor blueColor];
-    
+    self.tableView.userInteractionEnabled = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -86,20 +77,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-    
-//    for (NSInteger g =0 ; g < self.sectionTitles.count; g++) {
-//        cell.textLabel.text = [[self.blogPosts objectAtIndex:indexPath.row]objectForKey:@"title"];
-//        cell.detailTextLabel.text = [[self.blogPosts objectAtIndex:indexPath.row]objectForKey:@"author"];
-//    }
+
     BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
+
+    //Class Check - w/o this, the class could be null and crash the app
     if ([blogPost.thumbnail isKindOfClass:[NSString class]]) {
         NSData *data = [NSData dataWithContentsOfURL:blogPost.thumbnailURL];
         UIImage *image = [UIImage imageWithData:data];
-
         cell.imageView.image = image;
-
     }
-    else cell.imageView.image = [UIImage imageNamed:@"pig.png"];
+    else {
+        cell.imageView.image = [UIImage imageNamed:@"pig.png"];
+    }
 
     cell.textLabel.text = blogPost.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Author: %@ Date: %@", blogPost.author, [blogPost formattedDate]];
@@ -111,6 +100,17 @@
     //self.sectionTitles[section];
 }
 
+#pragma mark TableView Delegate
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"indexpath.row:%ld", (long)indexPath.row);
+    BlogPost *blogPost = [self.blogPosts objectAtIndex:indexPath.row];
+    //recieve instance of uiappdelegate (appdelegate singleton object, C file main);
+    UIApplication *application = [UIApplication sharedApplication];
+    [application openURL:blogPost.url];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.

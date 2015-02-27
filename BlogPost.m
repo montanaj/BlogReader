@@ -9,18 +9,8 @@
 #import "BlogPost.h"
 
 @implementation BlogPost
-/*
--(NSString *)title {
-    return title;
-}
-
--(void)setTitle:(NSString *)_title {
-    title = _title;
-}
-*/
 
 //A designated initializer has the primary responsibility for initializing new instances of a class.
-
 -(id)initWithTitle:(NSString *)title {
     //initlize self using methods in our parent class (NSObject)
     self = [super init];
@@ -58,6 +48,17 @@ BlogPost *blogPost3 = [BlogPost blogPostWithTitle:@"Hey Title" andAuthor:@"Hey A
     [dateFormatter setDateFormat:@"EE MMM, dd"];
     return [dateFormatter stringFromDate:tempDate];
 }
+
+//These would the be the setter/getter methods for instance variables
+/*
+ -(NSString *)title {
+ return title;
+ }
+
+ -(void)setTitle:(NSString *)_title {
+ title = _title;
+ }
+ */
 
 
 @end

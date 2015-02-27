@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E390CA61A941F09007733D3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E390CA51A941F09007733D3 /* TableViewController.m */; };
+		7E390CA91A951062007733D3 /* BlogPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E390CA81A951062007733D3 /* BlogPost.m */; };
+		7E390CAB1AA016E6007733D3 /* pig.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E390CAA1AA016E6007733D3 /* pig.png */; };
 		7EFC89081A8ABCCD00B8B317 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC89071A8ABCCD00B8B317 /* main.m */; };
 		7EFC890B1A8ABCCD00B8B317 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC890A1A8ABCCD00B8B317 /* AppDelegate.m */; };
-		7EFC890E1A8ABCCD00B8B317 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC890D1A8ABCCD00B8B317 /* ViewController.m */; };
 		7EFC89111A8ABCCD00B8B317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFC890F1A8ABCCD00B8B317 /* Main.storyboard */; };
 		7EFC89131A8ABCCD00B8B317 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFC89121A8ABCCD00B8B317 /* Images.xcassets */; };
 		7EFC89161A8ABCCD00B8B317 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EFC89141A8ABCCD00B8B317 /* LaunchScreen.xib */; };
@@ -27,13 +29,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E390CA41A941F09007733D3 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
+		7E390CA51A941F09007733D3 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
+		7E390CA71A951061007733D3 /* BlogPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogPost.h; path = ../BlogPost.h; sourceTree = "<group>"; };
+		7E390CA81A951062007733D3 /* BlogPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogPost.m; path = ../BlogPost.m; sourceTree = "<group>"; };
+		7E390CAA1AA016E6007733D3 /* pig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pig.png; sourceTree = "<group>"; };
 		7EFC89021A8ABCCD00B8B317 /* BlogReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFC89061A8ABCCD00B8B317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EFC89071A8ABCCD00B8B317 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EFC89091A8ABCCD00B8B317 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EFC890A1A8ABCCD00B8B317 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7EFC890C1A8ABCCD00B8B317 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7EFC890D1A8ABCCD00B8B317 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7EFC89101A8ABCCD00B8B317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EFC89121A8ABCCD00B8B317 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7EFC89151A8ABCCD00B8B317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -81,10 +86,13 @@
 		7EFC89041A8ABCCD00B8B317 /* BlogReader */ = {
 			isa = PBXGroup;
 			children = (
+				7E390CAA1AA016E6007733D3 /* pig.png */,
+				7E390CA71A951061007733D3 /* BlogPost.h */,
+				7E390CA81A951062007733D3 /* BlogPost.m */,
+				7E390CA41A941F09007733D3 /* TableViewController.h */,
+				7E390CA51A941F09007733D3 /* TableViewController.m */,
 				7EFC89091A8ABCCD00B8B317 /* AppDelegate.h */,
 				7EFC890A1A8ABCCD00B8B317 /* AppDelegate.m */,
-				7EFC890C1A8ABCCD00B8B317 /* ViewController.h */,
-				7EFC890D1A8ABCCD00B8B317 /* ViewController.m */,
 				7EFC890F1A8ABCCD00B8B317 /* Main.storyboard */,
 				7EFC89121A8ABCCD00B8B317 /* Images.xcassets */,
 				7EFC89141A8ABCCD00B8B317 /* LaunchScreen.xib */,
@@ -201,6 +209,7 @@
 			files = (
 				7EFC89111A8ABCCD00B8B317 /* Main.storyboard in Resources */,
 				7EFC89161A8ABCCD00B8B317 /* LaunchScreen.xib in Resources */,
+				7E390CAB1AA016E6007733D3 /* pig.png in Resources */,
 				7EFC89131A8ABCCD00B8B317 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EFC890E1A8ABCCD00B8B317 /* ViewController.m in Sources */,
 				7EFC890B1A8ABCCD00B8B317 /* AppDelegate.m in Sources */,
+				7E390CA61A941F09007733D3 /* TableViewController.m in Sources */,
 				7EFC89081A8ABCCD00B8B317 /* main.m in Sources */,
+				7E390CA91A951062007733D3 /* BlogPost.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +422,7 @@
 				7EFC89271A8ABCCE00B8B317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EFC89281A8ABCCE00B8B317 /* Build configuration list for PBXNativeTarget "BlogReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +431,7 @@
 				7EFC892A1A8ABCCE00B8B317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

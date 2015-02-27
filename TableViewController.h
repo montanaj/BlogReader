@@ -10,4 +10,8 @@
 
 @interface TableViewController : UITableViewController
 
+@property (strong, nonatomic) NSArray *sectionTitles; //array of strings
+@property (strong, nonatomic) NSMutableArray *blogPosts; //array of dictionaries
+@property (strong, nonatomic) NSArray *titles;
+
 @end
